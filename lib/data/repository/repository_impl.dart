@@ -1,7 +1,10 @@
 import 'dart:async';
 
+import 'package:api_artikel/data/model/list_artikel_model.dart';
 import 'package:api_artikel/data/model/login_model.dart';
+import 'package:api_artikel/data/model/post_artikel_model.dart';
 import 'package:api_artikel/data/model/register_model.dart';
+import 'package:api_artikel/data/model/show_model.dart';
 import 'package:api_artikel/data/network_core.dart';
 import 'package:api_artikel/data/repository/repository.dart';
 import 'package:api_artikel/ui/mainPage/main_screen.dart';
@@ -40,6 +43,57 @@ class RepositoryImpl implements Repository {
     } on DioError catch(e) {
       print(e.response?.data.toString());
       return RegisterModel.fromJson(e.response?.data);
+    }
+  }
+
+  @override
+  FutureOr<ListArtikelModel> getListArtikelModel(String token) async {
+    try {
+      var response = await network.dio.get("/post", options: Options(
+          headers: {
+            "Accept": "application/json",
+            "Authorization": "Bearer $token"
+          }
+      ));
+      print(response.data);
+      return ListArtikelModel.fromJson(response.data);
+    } on DioError catch(e) {
+      print(e.response?.data.toString());
+      return ListArtikelModel.fromJson(e.response?.data);
+    }
+  }
+
+  @override
+  FutureOr<ShowModel> getShowModel(int id, String token) async {
+    try {
+      var response = await network.dio.get("/post/$id", options:  Options(
+        headers: {
+          "Accept" : "application/json",
+          "Authorization" : "Bearer $token"
+        }
+      ));
+      print(response.data);
+      return ShowModel.fromJson(response.data);
+    } on DioError catch (e){
+      print(e.response?.data.toString());
+      return ShowModel.fromJson(e.response?.data);
+    }
+  }
+
+  @override
+  FutureOr<PostArtikelModel> postArtikelModel(String title, String content, String image, String token) async {
+    try {
+      var response = await network.dio.post("/post",data: {"title":title,"content":content,"image":image}, options: Options(
+          headers: {
+            "Accept": "application/json",
+            "Authorization": "Bearer $token"
+          }
+      ));
+      print(response.data);
+      return PostArtikelModel.fromJson(response.data);
+    } on DioError catch(e) {
+      print(e.response?.data.toString());
+      return PostArtikelModel.fromJson(e.response?.data);
     }
   }
 }

@@ -8,7 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class RegisterController extends GetxController{
-  final reposiroty = Get.find<Repository>();
+  final repository = Get.find<Repository>();
 
   RegisterModel? registerModel;
 
@@ -42,7 +42,7 @@ class RegisterController extends GetxController{
   void register(String name, String email, String username, String password) async {
     try {
       isLoading.isTrue;
-      var response = await reposiroty.postRegister(name, email, username, password);
+      var response = await repository.postRegister(name, email, username, password);
       registerModel = response;
       update();
       if (response.meta?.status == "success") {

@@ -1,6 +1,7 @@
 import 'package:api_artikel/theme/theme.dart';
 import 'package:api_artikel/ui/authentication/login_controller.dart';
 import 'package:api_artikel/ui/authentication/register_page.dart';
+import 'package:api_artikel/ui/mainPage/main_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -111,11 +112,12 @@ class PageLogin extends StatelessWidget {
                                 children: [
                                   TextButton(
                                     onPressed: () {
-                                      Navigator.pushReplacement(
-                                          context,
-                                          MaterialPageRoute(
-                                              builder: (context) =>
-                                                  PageRegister()));
+                                      Get.to(PageRegister(), transition: Transition.cupertino);
+                                      // Navigator.pushReplacement(
+                                      //     context,
+                                      //     MaterialPageRoute(
+                                      //         builder: (context) =>
+                                      //             PageRegister()));
                                       // Get.to(PageRegister(), transition: Transition.cupertino);
                                     },
                                     style: TextButton.styleFrom(
