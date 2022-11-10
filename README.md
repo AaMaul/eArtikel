@@ -1,16 +1,25 @@
-# api_artikel
+# Aplikasi e-Artikel
 
-A new Flutter project.
+Aplikasi yang dibuat untuk memenuhi salah satu tugas dari Jabar Coding Camp 2022, dengan Consum API
 
-## Getting Started
+## Consum API e-Artikel
 
-This project is a starting point for a Flutter application.
+Program ini masih mendahulukan fungsinya saja, masih perlu dikembangkan kembali untuk menyempurnakan UI/UX dan juga penyempurnaan fungsi/fitur
 
-A few resources to get you started if this is your first Flutter project:
+Berikut dokumentasi contoh dari tampilan Aplikasi e-Artikel
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+![Tampilan Aplikasi e-Artikel](https://github.com/AaMaul/eArtikel/blob/master/gitassets/ezgif.com-gif-maker.gif?raw=true)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Berikut beberapa yang sudah dikerjakan :
+- Page Splash
+- Page Login
+- Page Register
+- Page Home/List Artikel
+- Page Read Artikel
+- Page Update Artikel
+- Fitur Update
+- Fitur Delete
+- Fitur Logout
+
+Jika ada yang ingin mengembangkan atau masukan dan saran ataupun kritik boleh dipersilahkan
+Terima kasih.
