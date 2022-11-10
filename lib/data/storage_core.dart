@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:localstorage/localstorage.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import 'model/login_model.dart';
 
@@ -57,7 +58,7 @@ class StorageCore {
       return auth.data?.token;
     } catch (e) {
       debugPrint("Error while load access token: $e");
-      return 'token_not_loaded';
+      return null;
     }
   }
 
@@ -108,4 +109,50 @@ class StorageCore {
       rethrow;
     }
   }
+
+  // Future saveObject(dynamic object, String key) async {
+  //   try {
+  //     bool isStorageReady = await storage.ready;
+  //     if (isStorageReady) {
+  //       await storage.setItem(key, object);
+  //     }
+  //   } catch (e) {
+  //     debugPrint('error save$key : $e');
+  //     rethrow;
+  //   }
+  // }
+  //
+  // Future removeObject(String key) async {
+  //   try {
+  //     bool isStorageReady = await storage.ready;
+  //     if (isStorageReady) {
+  //       await storage.deleteItem(key);
+  //     }
+  //   } catch (e) {
+  //     debugPrint('error removing$key : $e');
+  //     rethrow;
+  //   }
+  // }
+
+
+  /// JAngAN GANTI
+
+  static Future<bool?> getIsOpen() async {
+    final prefs = await SharedPreferences.getInstance();
+    if (prefs.containsKey("is_open")) {
+      return prefs.getBool("is_open");
+    }
+    return null;
+  }
+
+  static void setIsOpen(bool isOpen) async {
+    final prefs = await SharedPreferences.getInstance();
+    prefs.setBool("is_open", isOpen);
+  }
+
+  static Future<bool> isfirstOpen() async {
+    final prefs = await SharedPreferences.getInstance();
+    return prefs.containsKey("is_open");
+  }
+
 }

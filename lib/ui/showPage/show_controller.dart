@@ -14,12 +14,13 @@ class ShowController extends GetxController {
   @override
   void onInit() {
     super.onInit();
-    showArtikel(storage.getAccessToken()??'', Get.arguments);
+    showArtikel(Get.arguments);
+    update();
   }
 
-  void showArtikel(String token, int id) async {
+  void showArtikel(String id) async {
     try {
-      var response = await repository.getShowModel(id, token);
+      var response = await repository.getShowModel(id);
       showModel=response;
       update();
     } catch(e) {

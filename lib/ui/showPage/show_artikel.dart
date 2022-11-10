@@ -34,7 +34,7 @@ class ShowArtikel extends StatelessWidget {
               onTap: () {
                 Get.back();
               },
-              child: Icon(
+              child: const Icon(
                 Icons.arrow_back,
                 color: Colors.white,
                 size: 25,
@@ -50,9 +50,9 @@ class ShowArtikel extends StatelessWidget {
                     SizedBox(
                       width: 400,
                       height: 150,
-                      child: Image.network(
+                      child:  Image.network(
                         controller.showModel?.data?.image ?? "https://",
-                        fit: BoxFit.fill,
+                        fit: BoxFit.fill, errorBuilder: (context, error, stackTrace) => Lottie.asset('assets/json/send_load.json'),
                       ),
                     ),
                     const SizedBox(
